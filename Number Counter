@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My JS</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.number{
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 20px;
+    border-color: aliceblue;
+    background-color: beige;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    margin-bottom: 2rem;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300px;
+}
+
+.btncontainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+#reset{
+    padding: 0.5rem;
+    background-color: #ff9100;
+    border: none;
+    border-radius: 5px;
+}
+
+#reset:hover {
+    background-color:  #ffa837;
+    transition: 0.3s ease;
+}
+
+#increase {
+    padding: 0rem 0.7rem;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 5px;
+}
+
+#increase:hover {
+    background-color: #ffe96c;
+    transition: 0.3s ease;
+}
+
+#decrease {
+    padding: 0rem 0.7rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffd700;
+}
+
+#decrease:hover {
+    background-color: #ffe96c;
+    transition: 0.3s ease;
+}
+
+    </style>
+</head>
+<body>
+    <div class="number">
+        <div class="counter">
+            <h1 id="label">0</h1>
+        </div>
+        
+        <div class="btncontainer">
+            <button id="reset">Reset</button>
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+        </div>
+    </div>
+    <script>
+            const increase = document.getElementById("increase");
+const reset = document.getElementById("reset");
+const decrease = document.getElementById("decrease");
+const label = document.getElementById("label");
+let count = 0;
+
+increase.onclick = function() {
+    count++;
+    label.textContent = count;
+}
+
+decrease.onclick = function() {
+    count--;
+    label.textContent = count;
+}
+
+reset.onclick = function() {
+    count = 0;
+    label.textContent = count;
+}
+    </script>
+</body>
+</html>
