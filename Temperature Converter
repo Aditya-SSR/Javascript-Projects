@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Temp Converter</title>
+    <style>
+        *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 238, 238);
+}
+
+.box{
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px black;
+    padding: 20px;
+    background-color: beige;   
+}
+
+#tofare{
+    margin-bottom: 0.5rem;
+}
+
+#h3{
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+#txt{
+    margin-bottom: 1rem;
+    padding: 0.4rem;
+    margin-left: 0.2rem;
+}
+
+#txt:focus{
+    outline: none;
+}
+
+#convert{
+    margin: 0.9rem 4rem;
+    padding: 0.4rem;
+    border: 1px solid rgb(255, 210, 143);
+    border-radius: 10px;
+    background-color: rgb(255, 208, 137);
+}
+
+#convert:hover{
+    background-color: rgb(255, 184, 77);
+    transition: 0.3s ease;
+}
+
+#value{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(255, 41, 41);
+}
+    </style>
+</head>
+<body>
+    
+   <div class="box"> 
+    <h3 id="h3">Temperature Converter</h3>
+    <form class="form">
+        <input type="number" class="textbox" id="txt"><br>
+
+        <input type="radio" id="tofare" name="degree">
+        <label for="tofare">Celsius ➡️ Farenheit</label><br>
+
+        <input type="radio" id="tocel" name="degree">
+        <label for="tocel">Farenheit ➡️ Celsius</label><br>
+
+        <button type="submit" id="convert">Convert</button>
+
+        <p id="value"></p>
+    </form>
+   </div> 
+
+    <script>
+        const degree = document.querySelector(`.textbox`);
+const faren = document.getElementById(`tofare`);
+const cel = document.getElementById(`tocel`);
+const btn = document.getElementById(`convert`);
+const res = document.getElementById(`value`);
+let temp;
+
+function convert() {
+    let fare;
+    let cels;
+    if(degree.value == ""){
+        res.textContent = `Enter a value!!`;
+    }
+    
+    else if(faren.checked){
+        temp = Number(degree.value);
+        fare = ((9/5) * temp) + 32;
+        res.textContent = `${fare} °F`;
+    }
+    else if(cel.checked){
+        temp = Number(degree.value);
+        cels = (temp - 32) * (5/9);
+        res.textContent = `${cels.toFixed(2)} °C`;
+    }
+    else{
+        res.textContent = `Select a unit!!`;
+    }
+    degree.value = "";
+}
+
+btn.onclick = function(event) {
+    event.preventDefault();
+    convert();
+}
+    </script>
+</body>
+</html>
