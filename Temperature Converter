@@ -3,7 +3,7 @@
 <head>
     <title>Temp Converter</title>
     <style>
-        *{
+*{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -102,7 +102,7 @@ function convert() {
     else if(faren.checked){
         temp = Number(degree.value);
         fare = ((9/5) * temp) + 32;
-        res.textContent = `${fare} °F`;
+        res.textContent = `${fare.toFixed(2)} °F`;
     }
     else if(cel.checked){
         temp = Number(degree.value);
